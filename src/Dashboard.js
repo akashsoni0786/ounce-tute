@@ -3,8 +3,6 @@ import {
   Grid,
   Modal,
   Pagination,
-  Select,
-  TextStyles,
 } from "@cedcommerce/ounce-ui";
 import React, { useEffect, useState } from "react";
 
@@ -109,7 +107,7 @@ const Dashboard = () => {
           };
           allData = [row, ...allData];
         });
-        setData(allData)
+        setData(allData.reverse())
         setLoading(false);
       });
   }, [count,page]);
