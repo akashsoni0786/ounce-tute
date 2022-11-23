@@ -5,6 +5,7 @@ import {
   FormChild,
   FormElement,
   TextField,
+  TextStyles,
 } from "@cedcommerce/ounce-ui";
 import { useState } from "react";
 import "./App.css";
@@ -21,8 +22,17 @@ function App() {
           spacing="loose"
           tabWidth="50"
         >
+           <TextStyles
+    alignment="left"
+    fontweight="normal"
+    textcolor="dark"
+    type="Heading"
+    utility="none"
+  >
+  Login
+  </TextStyles>
           <Card>
-            <FormElement>
+            <FormElement >
               <FormChild>
                 <TextField
                   clearFunction={function noRefCheck() {}}
