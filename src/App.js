@@ -5,6 +5,7 @@ import {
   FormChild,
   FormElement,
   TextField,
+  TextStyles,
 } from "@cedcommerce/ounce-ui";
 import { useState } from "react";
 import "./App.css";
@@ -12,9 +13,31 @@ import "./App.css";
 function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const submitData = () => {
+    if (username === "" || password === "") {
+      alert("All fields are mendatory!");
+    }
+    else if (username === "admin" || password === "admin") {
+      setPassword("");
+      setUsername("");
+      alert("Welcome Admin!!!");
+    } else {
+      alert("Invalid credentials [username= admin & password= admin]");
+    }
+  };
   return (
-    <div className="App">
+    <>
       <section>
+        <TextStyles
+          alignment="left"
+          fontweight="normal"
+          textcolor="dark"
+          type="Heading"
+          utility="none"
+        >
+          Login
+        </TextStyles>
+
         <FlexLayout
           desktopWidth="100"
           mobileWidth="100"
@@ -32,7 +55,6 @@ function App() {
                     <img
                       alt=""
                       src="https://img.freepik.com/free-icon/user_318-408961.jpg?w=2000"
-                      
                     />
                   }
                   max="200"
@@ -54,7 +76,6 @@ function App() {
                     <img
                       alt=""
                       src="https://e7.pngegg.com/pngimages/669/574/png-clipart-computer-icons-password-others-miscellaneous-random-password-generator.png"
-                      
                     />
                   }
                   max="200"
@@ -73,9 +94,7 @@ function App() {
                 />
                 <Button
                   onClick={() => {
-                    alert("Submitting.....");
-                    setPassword("");
-                    setUsername("");
+                    submitData();
                   }}
                 >
                   Login
@@ -85,7 +104,7 @@ function App() {
           </Card>
         </FlexLayout>
       </section>
-    </div>
+    </>
   );
 }
 
